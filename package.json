@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "learning backend at chai aur code channel",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "chai",
@@ -13,5 +14,8 @@
     "mongodb"
   ],
   "author": "dhruv yadav",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
 }

@@ -8,13 +8,13 @@ const UserSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref:"Videos"
     },
-    username:{
+    userName:{
         type: String,
         required: true,
         lowercase: true,
         unique: true,
         trim: true,
-        index: true
+        // index: true
     },
     email:{
         type: String,
@@ -55,7 +55,7 @@ UserSchema.methods.isPasswordCorrect = async function(password){
 }
 
 UserSchema.methods.generateAccessToken = function(){
-    jwt.sign(
+    return jwt.sign(
         {
             _id: this._id,
             email: this.email,
@@ -70,7 +70,7 @@ UserSchema.methods.generateAccessToken = function(){
 }
 
 UserSchema.methods.generateFreshToken = function() {
-    jwt.sign({
+    return jwt.sign({
         _id: this._id,
     },
     process.env.REFRESH_TOKEN_SECRET,
